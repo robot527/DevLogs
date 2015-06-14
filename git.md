@@ -30,5 +30,31 @@ Git是一款免费、开源的分布式版本控制系统，用于敏捷高效�
     tag          创建、列出、删除或校验一个 GPG 签名的 tag 对象  
 使用命令 __git help 命令__ 可以查看给定的子命令帮助或指南。
 
+##实例一：从零开始
+0x01 创建一个文件夹用作项目存放文件夹，并进入新建文件夹  
+	$  __mkdir git/DevLogs__  
+	$  __cd git/DevLogs__
 
-	
+0x02 创建一个空的 Git 版本库或重新初始化一个已存在的版本库  
+	/git/DevLogs$ __git init__
+
+0x03 配置用户信息  
+使用全局配置：  
+	$ __git config --global user.name "robot527"__ 双引号中填写自己的git用户名  
+	$ __git config --global user.email  "robot527@example.com"__ 双引号中填写自己的邮箱  
+如果之前配置过，可以跳过这一步。  
+如果要针对本项目配置用户信息，可使用局部配置。  
+	$ __git config  user.name "robot528"__  
+	$ __git config  user.email "robot528@example.com"__ 
+
+0x04 新建一个 .gitignore 或者 README.md 文件，用自己惯用的文本编辑器编写即可
+
+0x05 初始提交
+添加所有尚未跟踪的文件内容至索引  
+	/git/DevLogs$ __git add .__
+
+提交（记录变更到版本库）  
+	/git/DevLogs$ __git commit -m"first commit"__
+
+
+
