@@ -1,12 +1,6 @@
 #开发和学习日志
 记录工作和学习中用到的各种系统和软件的命令的中文释义和实例。  
-采用[Markdown](http://wowubuntu.com/markdown/)语法编写文档。
-
-##约定
-- 具体命令采用 __强调文本__。
-
-
-
+采用[Markdown](https://www.zybuluo.com/mdeditor#)语法编写文档。
 
 
 
