@@ -39,4 +39,7 @@
 或者 `chmod 777 filename`;  
 如果想取消某文件的执行权限，可使用命令： `chmod -x filename` 。
 
-
+0x08 查看 linux 系统是32位还是64位
+用命令 `arch` 或者 `uname -m` ，输出 i686 表示32位系统， x86_64 表示64位系统。  
+用命令 `file /bin/ls` ， 输出中会有 32-bit 或者 64-bit 字样。  
+用命令 `getconf LONG_BIT` 输出一目了然。
