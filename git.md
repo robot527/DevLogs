@@ -62,5 +62,45 @@ $ git config  user.email "robot528@example.com"
 提交（记录变更到版本库）：  
 /git/DevLogs$ `git commit -m"first commit"`
 
+##提高效率一：配置git客户端  
+0x01 配置文本编辑器：  
+```
+$ git config --global core.editor emacs
+$ git config --global core.editor vi
+$ git config --global core.editor gedit
+```
 
+0x02 配置git运行诸如log、diff等所使用的分页器  
+默认用的是less  
+```
+$ git config --global core.pager more
+```
 
+0x03 git输出信息的着色  
+```
+$ git config --global color.ui true  #首选配置
+$ git config --global color.ui always  #表明在任何情况下都要着色，即使git命令被重定向到文件或管道
+$ git config --global color.ui false  #不为输出着色
+```
+还可以分别为各个子命令的输出着色，它们都能被置为true、false或always：  
+```
+color.branch
+color.diff
+color.interactive
+color.pager
+color.status
+```
+
+0x04 配置外部的比较工具  
+以Meld为例：  
+在用户目录下创建一个git-meld.sh的脚本，  
+`vi ~/git-meld.sh `  
+加入以下内容：  
+```
+#!/bin/sh
+meld $2 $5
+```
+保存后更改文件的权限：  
+`chmod  +x ~/git-meld.sh `  
+最后配置diff.external：  
+`git config  --global diff.external  ~/git-meld.sh `
