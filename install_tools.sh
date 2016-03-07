@@ -1,5 +1,10 @@
 #! /bin/bash
 
+
+sudo apt-get install -y git
+
+sudo apt-get install -y ibus-googlepinyin
+
 # install pip for python2
 sudo easy_install pip
 
@@ -10,8 +15,6 @@ sudo easy_install3 pip
 
 sudo apt-get install -y ipython
 
-# install windows enviroment
-sudo apt-get install -y wine
 
 # install graphic vim editor
 sudo apt-get install -y vim-gnome
@@ -23,4 +26,8 @@ sudo apt-get install -y meld
 sudo apt-get install -y shutter
 
 
+#sudo apt-get install -y ubuntu-desktop
+
+
+sudo apt-get install -y retext
 
