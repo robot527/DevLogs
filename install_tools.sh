@@ -5,12 +5,14 @@ sudo apt-get install -y git
 
 sudo apt-get install -y ibus-googlepinyin
 
-# install pip for python2
+# install python-setuptools and pip for python2
+sudo apt-get install -y python-setuptools
 sudo easy_install pip
 
 sudo apt-get install -y python3
 
-# install pip for python3
+# install python3-setuptools and pip for python3
+sudo apt-get install -y python3-setuptools
 sudo easy_install3 pip
 
 sudo apt-get install -y ipython
@@ -30,4 +32,7 @@ sudo apt-get install -y shutter
 
 
 sudo apt-get install -y retext
+
+sudo apt-get install -y cscope
+sudo apt-get install -y ctags
 
