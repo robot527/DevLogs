@@ -39,7 +39,21 @@
 或者 `chmod 777 filename`;  
 如果想取消某文件的执行权限，可使用命令： `chmod -x filename` 。
 
-0x08 查看 linux 系统是32位还是64位
+0x08 查看 linux 系统是32位还是64位  
 用命令 `arch` 或者 `uname -m` ，输出 i686 表示32位系统， x86_64 表示64位系统。  
 用命令 `file /bin/ls` ， 输出中会有 32-bit 或者 64-bit 字样。  
 用命令 `getconf LONG_BIT` 输出一目了然。
+
+0x09 **find**命令 在指定目录下查找文件  
+`find . -name '*.c'` 表示列出当前目录下所有以 *.c* 结尾的文件  
+`find /home -name '*.py'` 表示列出 */home* 目录下所有以 *.py* 结尾的文件  
+`find . -type f -name '*.log'` 表示列出当前目录下所有普通文件中以 *.log* 结尾的文件  
+`find . -name '*.py' -mtime -5` 表示列出当前目录下所有以 *.py* 结尾且在5天之内修改过的文件  
+`find . -type f -name '*.o' -delete` 表示删除当前目录下所有以 *.o* 结尾的文件
+
+0x0a 用**tar**命令打包并压缩工程目录下的代码文件  
+将 */home/repo* 目录下除版本控制系统目录以外的所有文件打包并以 gzip 压缩为 *targetname.tar.gz* 文件使用命令：  
+`tar zcf targetname.tar.gz /home/repo --exclude-vcs`  
+将 */home/repo* 目录下除版本控制系统目录和所有以 *.pyc* *.pyo* *.pyd* 结尾的文件  
+以外的所有文件打包并以 gzip 压缩为 *targetname.tar.gz* 文件使用命令：  
+`tar zcf targetname.tar.gz /home/repo --exclude-vcs --exclude=*.pyc --exclude=*.pyo --exclude=*.pyd`
