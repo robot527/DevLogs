@@ -17,6 +17,9 @@ sudo easy_install3 pip
 
 sudo apt-get install -y ipython
 
+# install pylint for checking python code's bug and quality
+apt-get install -y pylint
+
 
 # install graphic vim editor
 sudo apt-get install -y vim-gnome
