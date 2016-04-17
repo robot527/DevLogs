@@ -57,3 +57,17 @@
 将 */home/repo* 目录下除版本控制系统目录和所有以 *.pyc* *.pyo* *.pyd* 结尾的文件  
 以外的所有文件打包并以 gzip 压缩为 *targetname.tar.gz* 文件使用命令：  
 `tar zcf targetname.tar.gz /home/repo --exclude-vcs --exclude=*.pyc --exclude=*.pyo --exclude=*.pyd`
+
+0x0b 用**wget**下载备份整个网站  
+下载备份Linux命令大全网站，便于离线时查看  
+`wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains man.linuxde.net -o man.linuxde.net.log man.linuxde.net `  
+>     命令参数解释：
+>     --recursive 开启递归下载（默认递归深度是5）；
+>     --no-clobber 不要覆盖已有文件(以防下载被中断而重新开始)；
+>     --page-requisites 下载 HTML 页面所有需要的元素(图像、声音、引用样式表等等)；
+>     --html-extention 下载 html 相关的文件（该选项在新版中被认为是过时的，建议使用 --adjust-extension）；
+>     --convert-links 转换文档中的链接地址，从而本地离线可以正常访问；
+>     --restrict-file-names=windows 修改文件名以使文件也可以在 windows 下访问(某些文件名在 Linux 下有效而在 Windows 下无效)；
+>     --domains man.linuxde.net 不要下载 man.linuxde.net 以外的链接地址（如果使用 -H 选项，则该选会关闭）；
+>     -o man.linuxde.net.log 记录所有消息到文件 man.linuxde.net.log 保存在当前目录下；
+参考： [使用Wget下载整个网站](http://lanbing510.info/2015/12/11/Wget.html)
