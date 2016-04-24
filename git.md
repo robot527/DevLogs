@@ -104,3 +104,16 @@ meld $2 $5
 `chmod  +x ~/git-meld.sh `  
 最后配置diff.external：  
 `git config  --global diff.external  ~/git-meld.sh `
+
+##实例二：使用git远程仓库  
+```
+$ mkdir Devlogs && cd Devlogs #创建仓库目录并进入该目录
+$ git init #初始化空仓库
+$ git remote add -t master -m master test https://github.com/robot527/DevLogs.git #添加一个跟踪仓库master分支简称为test的远程仓库
+$ git remote -v #查看远程仓库详情
+$ git pull test #获取远程仓库更新
+$ git remote set-url --push test git@github.com:robot527/DevLogs.git #设置test远程仓库推送的地址（SSH方式）
+$ git push --set-upstream test master #为推送当前分支并建立与远程上游的跟踪
+$ git push test #推送本地更新到test远程仓库
+```
+另，要删除 *test* 远程仓库使用命令：`git remote remove test`
