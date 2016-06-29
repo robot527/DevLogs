@@ -71,3 +71,21 @@
 >     --domains man.linuxde.net 不要下载 man.linuxde.net 以外的链接地址（如果使用 -H 选项，则该选会关闭）；
 >     -o man.linuxde.net.log 记录所有消息到文件 man.linuxde.net.log 保存在当前目录下；
 参考： [使用Wget下载整个网站](http://lanbing510.info/2015/12/11/Wget.html)
+
+0x0c 使用**awk**处理文本  
+从格式化输出里提取指定的一列，例如从 `git status` 输出里提取文件名：  
+`git status -s | awk '{print $2}'`  
+可以写个函数  
+```
+function col {
+	awk -v col=$1 '{print $col}'
+}
+```
+加入文件 *~/.bashrc* 中，并执行命令 `source ~/.bashrc` ，则上一条命令可简化为：  
+`git status -s | col 2`  
+从格式化输出里提取指定的多列，例如：  
+`ps aux | awk '{print $1 "\t" $11}'`  
+`ps -e | awk '{print $1 "\t" $4}'`  
+打印文件中的多列，例如：  
+`awk '{for(i=2;i<=7;i++) printf($i"\t"); printf("\n")}' file.txt` 打印第2到7列  
+`awk '{for(i=1;i<=NF;i+=3) printf($i"\t"); printf("\n")}' a.log` 打印1、4、7..列
