@@ -10,5 +10,6 @@ GitHub 的 [编辑格式](https://help.github.com/articles/basic-writing-and-for
 - [git 的学习记录](./git.md)
 - [Linux 命令学习记录](./linux_commands.md)
 - [vim 学习记录](./vim.md)
+- [Linux 系统管理员命令](./system-administration-commands.md)
 
 ## [贡献](./Contributing.md)
