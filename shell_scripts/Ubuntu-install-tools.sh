@@ -18,7 +18,7 @@ sudo easy_install3 pip
 sudo apt-get install -y ipython
 
 # install pylint for checking python code's bug and quality
-apt-get install -y pylint
+sudo apt-get install -y pylint
 
 
 # install graphic vim editor
@@ -38,4 +38,13 @@ sudo apt-get install -y retext
 
 sudo apt-get install -y cscope
 sudo apt-get install -y ctags
+
+sudo apt-get install -y gawk
+
+mkdir git && cd git
+# install a command-line translator
+git clone https://github.com/soimort/translate-shell
+cd translate-shell/
+make
+sudo make install
 
