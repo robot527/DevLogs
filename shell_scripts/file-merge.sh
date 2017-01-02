@@ -36,7 +36,9 @@ if test -z "$out"
 then
 	out='all.'$suffix
 else
-	out=$out'.'$suffix
+	if [[ $out != *"."* ]];then
+		out=$out'.'$suffix
+	fi
 fi
 
 if test -e $out;then
