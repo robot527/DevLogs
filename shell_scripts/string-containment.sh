@@ -24,10 +24,31 @@ function substr1
 	if [[ $1 == *$2* ]]
 	then
 		echo "\"$2\" is substring of \"$1\"."
-		return 0
+		return 1
 	else
 		echo "\"$2\" is not substring of \"$1\"."
+		return 0
+	fi
+}
+
+# 使用 case 语句，效率高，参见 http://stackoverflow.com/questions/229551/string-contains-in-bash/25535717#25535717
+function substr2
+{
+	case "$1" in
+		*"$2"*) return 1;;
+		*) return 0
+	esac
+#	return 0
+}
+
+# 使用正则匹配
+function substr3
+{
+	if [[ $1 =~ $2 ]]
+	then
 		return 1
+	else
+		return 0
 	fi
 }
 
@@ -37,6 +58,8 @@ if test $# == 0;then
 elif test $# == 2;then
 	echo "substr test:"; substr $1 $2
 	echo "substr1 test:"; substr1 $1 $2
+	echo "substr2 test:"; substr2 $1 $2 && echo 'NO' || echo 'YES'
+	echo "substr3 test:"; substr3 $1 $2 && echo 'NO' || echo 'YES'
 else
 	echo "Need 2 parameters."
 fi
