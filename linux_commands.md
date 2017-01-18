@@ -49,7 +49,9 @@
 `find /home -name '*.py'` 表示列出 */home* 目录下所有以 *.py* 结尾的文件  
 `find . -type f -name '*.log'` 表示列出当前目录下所有普通文件中以 *.log* 结尾的文件  
 `find . -name '*.py' -mtime -5` 表示列出当前目录下所有以 *.py* 结尾且在 5 天之内修改过的文件  
-`find . -type f -name '*.o' -delete` 表示删除当前目录下所有以 *.o* 结尾的文件
+`find . -type f -name '*.o' -delete` 表示删除当前目录下所有以 *.o* 结尾的文件  
+`find . -name "*.c" -exec chmod -x {} \;` 表示修改当前目录下所有以 *.c* 结尾的文件的执行权限  
+`find . -name "*.txt" -exec cat {} > all-txt \;` 表示查找当前目录下所有以 *.txt* 结尾的文件并把他们拼接起来写入到 `all-txt` 文件中
 
 0x0a 用 **tar** 命令打包并压缩工程目录下的代码文件  
 将 */home/repo* 目录下除版本控制系统目录以外的所有文件打包并以 gzip 压缩为 *targetname.tar.gz* 文件使用命令：  
