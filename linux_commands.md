@@ -33,6 +33,8 @@
 例如：  
 `$ ps aux | grep firefox`  
 `$ ps aux | grep python`  
+另有：  
+`pgrep firefox`
 
 0x07 当编译或者下载一个程序文件后，想运行该程序却发现被系统拒绝执行，  
 这时一般都是因为该文件没有可执行权限，那么可以使用命令： `chmod +x filename`  
@@ -102,3 +104,12 @@ function col {
 `tail -c 10 file` 显示文件 file 的最后 10 个字节内容  
 `tail -n +20 file` 显示文件 file 从第 20 行至文件末尾的内容  
 `tail -f file` 输出文件 file 最后 10 行并随着文件增长输出最新追加的内容（查看正在更新的日志文件）  
+
+0x0e 用 **file** 查看文件类型和编码  
+`file file.c` 显示文件 *file.c* 的类型和易读的编码信息  
+`file -i file.c` 显示文件 *file.c* 的类型和详细的编码信息  
+`file -z cppcheck-1.74.tar.gz` 尝试查看压缩文件的信息  
+`file -L /bin/sh` 直接显示符号链接所指向的文件的类型信息  
+`file *` 显示当前目录下所有文件和目录的类型信息  
+`file *.c` 显示当前目录下所有以 *.c* 结尾的文件的类型信息  
+
