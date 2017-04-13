@@ -1,6 +1,6 @@
-#Linux 系统管理员命令
+# Linux 系统管理员命令
 
-##Linux 内核模块相关命令  
+## Linux 内核模块相关命令  
 `lsmod` 显示 Linux 内核中模块的状态。  
 `insmod` 将模块插入 Linux 内核的简单程序。  
 `rmmod` 从 Linux 内核中删除模块的简单程序。  

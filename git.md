@@ -1,10 +1,10 @@
-#git 的学习记录
+# git 的学习记录
 
-##git 简介
+## git 简介
 Git -- The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。  
 Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
 
-##常用的 git 命令的解释
+## 常用的 git 命令的解释
 使用命令 `git --help` 可以查到，  
 最常用的 git 命令有：  
 >     add          添加文件内容至索引
@@ -31,7 +31,7 @@ Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效�
 
 使用命令 `git help 命令 ` 可以查看给定的子命令帮助或指南。
 
-##实例一：从零开始
+## 实例一：从零开始
 0x01 创建一个文件夹用作项目存放文件夹，并进入新建文件夹  
 ```
 $ mkdir git/DevLogs
@@ -62,7 +62,7 @@ $ git config  user.email "robot528@example.com"
 提交（记录变更到版本库）：  
 /git/DevLogs$ `git commit -m"first commit"`
 
-##提高效率一：配置 git 客户端  
+## 提高效率一：配置 git 客户端  
 0x01 配置文本编辑器：  
 ```
 $ git config --global core.editor emacs
@@ -105,7 +105,7 @@ meld $2 $5
 最后配置 diff.external：  
 `git config  --global diff.external  ~/git-meld.sh `
 
-##实例二：使用 git 远程仓库  
+## 实例二：使用 git 远程仓库  
 ```
 $ mkdir Devlogs && cd Devlogs #创建仓库目录并进入该目录
 $ git init #初始化空仓库
@@ -118,7 +118,7 @@ $ git push test #推送本地更新到 test 远程仓库
 ```
 另，要删除 *test* 远程仓库使用命令：`git remote remove test`
 
-##实例三：更新（同步） GitHub 上 fork 的仓库  
+## 实例三：更新（同步） GitHub 上 fork 的仓库  
 ```
 #添加一个叫作 "upstream" 的远程仓库
 $ git remote add upstream https://github.com/robot527/DevLogs.git

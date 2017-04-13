@@ -1,4 +1,4 @@
-#Linux 命令学习记录
+# Linux 命令学习记录
 
 0x01 **man** 命令是 Linux 下的帮助指令，通过 man 指令可以查看 Linux 中的指令帮助、配置文件帮助和编程帮助等信息。例如 `$ man which` 和 `$ man ifconfig`
 
