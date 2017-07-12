@@ -15,6 +15,7 @@ shell 脚本编程实例。
 - [算术运算](./arithmetic.sh)
 - [斐波那契数列](./fibonacci_array.sh)
 - [变量细节](./variables_and_echo.sh)
+- [函数](./functions.sh)
 - [telnet 操作进行设备测试](./telnet-login-test.sh)
 - [生成随机数](./random_num.sh)
 - [生成随机字符串](./random_string.sh)
