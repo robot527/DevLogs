@@ -113,3 +113,14 @@ function col {
 `file *` 显示当前目录下所有文件和目录的类型信息  
 `file *.c` 显示当前目录下所有以 *.c* 结尾的文件的类型信息  
 
+0x0f 用 **scp** 传输文件  
+```
+#从远端机器复制文件到本地
+scp root@192.168.1.100:/home/username/.bash_history ~/username.bash_history
+
+#上传本地文件到远端机器的指定目录
+scp ~/.bashrc root@192.168.1.100:/home/username/
+```
+
+0x10 用 **mount** 挂载服务器上的 samba 共享目录  
+`mount -t ext4 -o user=name,uid=1000,gid=1000,pass=test //1.1.1.1/code /home/name/code/`
