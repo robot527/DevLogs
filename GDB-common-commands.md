@@ -36,6 +36,8 @@
 
  - [backtrace](#backtrace) -- 缩写 `bt`，查看程序调用栈的信息
 
+ - [ptype](#ptype) -- 打印类型 TYPE 的定义
+
 
 ************
 
@@ -78,7 +80,7 @@
 
 ## clear
 在指定行或函数处清除断点。 参见[官方文档][3]。  
-参数可以是行号，函数名称或 "*" 跟一个地址。  
+参数可以是行号，函数名称或 `*` 跟一个地址。  
 
  - `clear` 当不带参数时，清除所选栈帧在执行的源码行中的所有断点。
  - `clear <function>`, `clear <filename:function>` 删除在命名函数的入口处设置的任何断点。
@@ -153,7 +155,9 @@
 用法： `print [expr]` 或 `print /f [expr]`  
 `expr` 是一个（在源代码语言中的）表达式。  
 默认情况下，`expr` 的值以适合其数据类型的格式打印；您可以通过指定 `/f` 来选择不同的格式，其中 `f` 是一个指定格式的字母；参见[输出格式][9]。  
-如果省略 `expr`，GDB 再次显示最后一个值。
+如果省略 `expr`，GDB 再次显示最后一个值。  
+要以每行一个成员带缩进的格式打印结构体变量请使用命令 `set print pretty on`，取消则使用命令 `set print pretty off`。  
+可使用命令 `show print` 查看所有打印的设置。
 
 ## x
 检查内存。 参见[官方文档][10]。  
@@ -163,7 +167,9 @@
 `n` 重复次数（默认值是 1），指定要显示多少个单位（由 `u` 指定）的内存值。  
 `f` 显示格式（初始默认值是 `x`），显示格式是 `print('x'，'d'，'u'，'o'，'t'，'a'，'c'，'f'，'s')` 使用的格式之一，再加 `i`（机器指令）。  
 `u` 单位大小，`b` 表示单字节，`h` 表示双字节，`w` 表示四字节，`g` 表示八字节。  
-例如，`x/3uh 0x54320` 表示从地址 0x54320 开始以无符号十进制整数的方式，双字节为单位显示 3 个内存值。
+例如：  
+`x/3uh 0x54320` 表示从地址 0x54320 开始以无符号十进制整数的方式，双字节为单位显示 3 个内存值。  
+`x/16xb 0x7f95b7d18870` 表示从地址 0x7f95b7d18870 开始以十六进制整数的方式，单字节为单位显示 16 个内存值。
 
 ## display
 每次程序停止时打印表达式 EXP 的值。 参见[官方文档][11]。  
@@ -214,7 +220,7 @@ GDB 在安排调试指定的进程之后做的第一件事是停住它。
 set args arg1 arg2 ...
 run
 ```
-还允许使用 ">", "<", 或 ">>" 进行输入和输出重定向。
+还允许使用 `>`, `<`, 或 `>>` 进行输入和输出重定向。
 
 ## backtrace
 打印整个栈的回溯。 参见[官方文档][16]。
@@ -237,12 +243,55 @@ run
 #7  0x08054168 in main (argc=4, argv=0xbf8333e4) at vswitchd/ovs-vswitchd.c:125
 ```
 
+## ptype
+打印类型 TYPE 的定义。 参见[官方文档][17]。  
+用法： `ptype[/FLAGS] TYPE-NAME | EXPRESSION`  
+参数可以是由 `typedef` 定义的类型名， 或者 `struct STRUCT-TAG` 或者 `class CLASS-NAME` 或者 `union UNION-TAG` 或者 `enum ENUM-TAG`。  
+所选的栈帧的词法上下文用于查找该名字。  
+类似的命令是 `whatis`，区别在于 `whatis` 不展开由 `typedef` 定义的数据类型，而 `ptype` 会展开，举例如下：  
+```
+/* 类型声明与变量定义 */
+typedef double real_t;
+struct complex {
+    real_t real;
+    double imag;
+};
+typedef struct complex complex_t;
+
+complex_t var;
+real_t *real_pointer_var;
+```
+这两个命令给出了如下输出：  
+```
+(gdb) whatis var
+type = complex_t
+(gdb) ptype var
+type = struct complex {
+    real_t real;
+    double imag;
+}
+(gdb) whatis complex_t
+type = struct complex
+(gdb) whatis struct complex
+type = struct complex
+(gdb) ptype struct complex
+type = struct complex {
+    real_t real;
+    double imag;
+}
+(gdb) whatis real_pointer_var
+type = real_t *
+(gdb) ptype real_pointer_var
+type = double *
+```
+
+
+
 ************
 
 ## 参考资料
 
  - [Debugging with GDB](https://sourceware.org/gdb/current/onlinedocs/gdb/)
- - [用 GDB 调试程序（二）](http://blog.csdn.net/haoel/article/details/2880)
 
 --------------------------------------------------------------------------------
 
@@ -264,4 +313,5 @@ run
 [14]:https://sourceware.org/gdb/current/onlinedocs/gdb/Starting.html
 [15]:https://sourceware.org/gdb/current/onlinedocs/gdb/Arguments.html
 [16]:https://sourceware.org/gdb/current/onlinedocs/gdb/Backtrace.html
+[17]:https://sourceware.org/gdb/current/onlinedocs/gdb/Symbols.html
 
