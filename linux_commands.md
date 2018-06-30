@@ -62,6 +62,13 @@
 以外的所有文件打包并以 gzip 压缩为 *targetname.tar.gz* 文件使用命令：  
 `tar zcf targetname.tar.gz /home/repo --exclude-vcs --exclude=*.pyc --exclude=*.pyo --exclude=*.pyd`
 
+打包压缩时排除指定目录：  
+```
+#将 /usr/include/ 目录下除 /usr/include/rpcsvc 目录以外的所有文件打包压缩
+tar -zcvf usr-include.tar.gz --exclude rpcsvc /usr/include/
+tar -zcvf usr-include.tar.gz --exclude /usr/include/rpcsvc /usr/include/
+```
+
 0x0b 用 **wget** 下载备份整个网站  
 下载备份 Linux 命令大全网站，便于离线时查看  
 `wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains man.linuxde.net -o man.linuxde.net.log man.linuxde.net `  
