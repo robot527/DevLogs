@@ -135,3 +135,31 @@ $ git rebase upstream/master
 #最后推送到自己 GitHub 账户的远程仓库
 $ git push -f origin master
 ```
+
+## 如何查询这几行代码都是谁提交的
+```
+cd wireshark
+git blame -nL 1510,1513 epan/dissectors/packet-tcp.c
+b6937765 325 (Bill Meier 2010-04-28 16:03:47 +0000 1510)     /* if the addresses are equal, match the ports instead */
+b6937765 326 (Bill Meier 2010-04-28 16:03:47 +0000 1511)     if(direction==0) {
+b6937765 327 (Bill Meier 2010-04-28 16:03:47 +0000 1512)         direction= (pinfo->srcport > pinfo->destport) ? 1 : -1;
+b6937765 328 (Bill Meier 2010-04-28 16:03:47 +0000 1513)     }
+
+#接着查看这个提交的具体信息
+git log --stat -1 b6937765
+commit b6937765561c9abd3ad9b70acaedda2c980b8a53
+Author: Bill Meier <wmeier@newsguy.com>
+Date:   Wed Apr 28 16:03:47 2010 +0000
+
+    Let's not use tabs with tab-width=4; Converts tabs to spaces (with indent=4).
+    Also: use consistent indentation.
+    
+    svn path=/trunk/; revision=32586
+
+ epan/dissectors/packet-banana.c |  498 ++++-----
+ epan/dissectors/packet-tcp.c    | 6856 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------------------------------------
+---------
+ epan/dissectors/packet-v52.c    | 4032 +++++++++++++++++++++++++++++++++++-----------------------------------
+ 3 files changed, 5693 insertions(+), 5693 deletions(-)
+```
+
