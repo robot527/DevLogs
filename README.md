@@ -13,5 +13,6 @@ GitHub 的 [编辑格式](https://help.github.com/articles/basic-writing-and-for
  - [Linux 系统管理员命令](./system-administration-commands.md)
  - [shell 脚本编程实例](./shell_scripts/README.md)
  - [常用的 GDB 命令中文释义](./GDB-common-commands.md)
+ - [sed 文本处理学习笔记](./sed-notes.md)
 
 ## [贡献](./Contributing.md)
