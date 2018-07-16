@@ -1,6 +1,6 @@
 # shell 脚本
 
-shell 脚本编程实例。  
+shell 脚本编程实例。
 
 ## 目录
 
@@ -24,3 +24,4 @@ shell 脚本编程实例。
 - [使用 getopts 处理命令行的位置参数](./getopts.sh)
 - [合并文本文件](./file-merge.sh)
 - [字符串包含](./string-containment.sh)
+- [数组语法](./array.sh)
